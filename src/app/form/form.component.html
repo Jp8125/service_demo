@@ -1,0 +1,6 @@
+<form  [formGroup]="userform">
+    <input type="text" formControlName="name"><input type="number" formControlName="age"><input type="text" formControlName="Address"><input type="text" formControlName="qualification">
+    <input type="radio" formControlName="gender" name="gender" value="male"><label for="male">male</label>
+    <input type="radio" formControlName="gender" name="gender" value="female"><label for="female">female</label>
+    <button (click)="add()">add</button>
+</form>
