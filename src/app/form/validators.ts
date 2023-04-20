@@ -5,7 +5,10 @@ export function name_validate(Formcont:FormControl){
     if(Formcont.value==n){
         return {"invalid":true}
     }
-    return null
+    else
+    {
+        return {"invalid":false}
+    }
 }
 export function age_valid(fc_age:FormControl){
     if(fc_age.value<18){
