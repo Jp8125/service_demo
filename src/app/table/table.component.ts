@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { User } from '../interface/user';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-table',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent {
+  details:Array<User>=[]
+constructor(private getdaata:UserService){
+  this.details=getdaata.getUsers()
+}
 
 }

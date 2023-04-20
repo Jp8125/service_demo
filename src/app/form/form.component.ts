@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserService } from '../service/user.service';
+import { age_valid, name_validate } from './validators';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -10,8 +11,8 @@ export class FormComponent {
   userform:FormGroup
   constructor(private form: FormBuilder,private us:UserService){
     this.userform=form.group({
-      name:[''],
-      age:[''],
+      name:['',name_validate],
+      age:['',age_valid],
       Address:[''],
       gender:[''],
       qualification:[''],

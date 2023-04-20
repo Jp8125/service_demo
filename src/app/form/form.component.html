@@ -1,6 +1,31 @@
-<form  [formGroup]="userform">
-    <input type="text" formControlName="name"><input type="number" formControlName="age"><input type="text" formControlName="Address"><input type="text" formControlName="qualification">
-    <input type="radio" formControlName="gender" name="gender" value="male"><label for="male">male</label>
-    <input type="radio" formControlName="gender" name="gender" value="female"><label for="female">female</label>
-    <button (click)="add()">add</button>
+<form  [formGroup]="userform" class="container mt-2 p-4">
+    <div class="row">
+        <label for="name" class="col">Name</label>
+        <input type="text" formControlName="name" class="col">
+        <small class="text-center text-danger" *ngIf="userform.get('name')?.errors?.['invalid']">name is alredy in use</small>
+    </div>
+    <div class="row my-2">
+        <label for="age" class="col">Age</label>
+        <input type="number" formControlName="age" class="col">
+        <small *ngIf="userform.get('age')?.errors?.['invalid']" class="text-center text-danger">age should be greater then 18</small>
+    </div>
+    <div class="row">
+        <label for="address" class="col"></label>
+        <textarea type="text" formControlName="Address" class="col"></textarea>
+    </div>
+    <div class="row my-2">
+        <label for="qualification" class="col">Qualification</label>
+        <input type="text" formControlName="qualification" class="col">
+    </div>
+    <div class="row">
+        <label for="gender" class="col">Gender</label>
+       
+        <div class="col">
+            <input type="radio" formControlName="gender" name="gender" value="male"><label for="male" >male</label>
+            <input type="radio" formControlName="gender" name="gender" value="female" class="ms-2"><label for="female" >female</label>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button (click)="add()" class="btn btn-dark" [disabled]="userform.invalid">add</button>
+    </div>
 </form>
